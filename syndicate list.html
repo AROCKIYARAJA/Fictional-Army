@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./military_tech_FILL0_wght400_GRAD0_opsz24.svg" type="image/x-icon">
+    <title>Syndicate Member Details</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
+      }
+      body {
+        background: #040424;
+      }
+      #container {
+        width: 1500px;
+        max-width: 100%;
+        margin: 0px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .troop {
+        width: 350px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.163);
+        display: flex;
+        justify-content: left;
+        border-radius: 10px;
+        transition: 0.9s;
+        color: white;
+        background: #070733;
+        position: relative;
+        cursor: pointer;
+      }
+      .troop:hover {
+        transition: 0.1s;
+        box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.099);
+        background: #ffffff;
+        color: black;
+      }
+      .troop-pic {
+        width: 80px;
+        height: 100px;
+        border-radius: 5px;
+      }
+      .grade {
+        font-weight: 600;
+        width: fit-content;
+        padding: 8px 10px;
+        border-radius: 5px;
+        margin: 5px 0px;
+        transition: 0.4s;
+        background: rgba(232, 232, 232, 0.14);
+      }
+      .troop:hover .grade {
+        transition: 0.4s;
+        color: #2b2b83;
+        background: rgb(202, 202, 202);
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.826);
+      }
+      .troop:hover .troop-pic {
+        scale: 1.1;
+        border: 1px solid #0b0b49;
+        box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.475);
+      }
+      .id,
+      .name {
+        margin: 07px 10px;
+      }
+      .title {
+        color: white;
+        text-align: center;
+        font-weight: 800;
+        font-size: 1.6rem;
+      }
+      .profile-update {
+        padding: 10px;
+        background: whitesmoke;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .profile-delete {
+        padding: 10px;
+        color: whitesmoke;
+        background-color: red;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .profile-delete:hover {
+        transition: 0.4s;
+        box-shadow: inset 0px 0px 10px black;
+        text-shadow: 2px 2px 4px black;
+      }
+      .profile-changes {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+      }
+
+      .overview {
+        width: 350px;
+        height: 250px;
+        max-height: 300px;
+        position: absolute;
+        display: none;
+        left: -0.5px;
+        background: #383838;
+        z-index: 1;
+        transform: translateY(111px);
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        animation: Drop_down 0.3s ease-in-out;
+      }
+      @keyframes Drop_down {
+        from {
+          transform: translateY(0px);
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+          transform: translateY(111px);
+        }
+      }
+      .story {
+        width: 100%;
+        background: #383838;
+        color: white;
+        padding: 15px;
+        overflow-y: scroll;
+        height: 80%;
+        font-size: 14px;
+        text-align: justify;
+      }
+      .card-close {
+        width: 95%;
+        margin: 0px auto;
+        background: red;
+        height: 15%;
+        border-radius: 5px;
+        transform: translateY(5px);
+        color: white;
+        text-align: center;
+        line-height: 35px;
+      }
+      .story::-webkit-scrollbar {
+        height: 10px;
+        width: 10px;
+      }
+      .story::-webkit-scrollbar {
+        background: #383838;
+      }
+      .story::-webkit-scrollbar-track {
+        width: 10px;
+      }
+      .story::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <br /><br />
+    <p class="title">
+      Fictional Indian Army
+      <input type="text" id="search-solder" style="text-transform: uppercase" />
+    </p>
+    <br /><br />
+    <div id="container"></div>
+    <p class="profile-changes">
+      <a href="./updation.html" target="_blank" class="profile-update"
+        >Profile Update</a
+      >
+      <a href="./profile delete.html" target="_blank" class="profile-delete">Profile Delete</a>
+    </p>
+    
+    <audio src="./typing sound.mp3" id="typing-audio"></audio>
+
+    <script>
+      document.addEventListener("keydown", (event) => {
+        typing_audio.play();
+        alert("hey");
+      });
+      let container = document.getElementById("container");
+      let solder_info =
+        JSON.parse(localStorage.getItem("Troop_information")) || [];
+      console.table(solder_info[1]);
+      for (i = 0; i < solder_info.length; i++) {
+        let troop = document.createElement("div");
+        troop.classList.add("troop");
+        troop.innerHTML = `
+            <div class='troop-pic' style='background:url(${solder_info[i].img_src});background-position: center;background-size: cover;'></div> &nbsp;
+            <div id='card-show${solder_info[i].id}' onclick='show_card("${solder_info[i].id}")' title='click'>
+                <p class='grade'>Grade : ${solder_info[i].Syndicate_Grade}</p>
+                <p class='id'> ID : ${solder_info[i].id}</p>
+                <p class='name'>  Name : ${solder_info[i].Syndicate_Name}</p>
+            </div>
+            <div class="overview" id='card-close${solder_info[i].id}'>
+                <div class="story">
+                   <p><b>Story :</b> ${solder_info[i].last_mission}</p> <br>
+                   <p><b>Age :</b> ${solder_info[i].Syndicate_Age}</p> <br>
+                   <p><b>Salary :</b> ₹ ${solder_info[i].salary}</p> <br>
+                   <p><b>Location :</b> ${solder_info[i].city}, ${solder_info[i].state}</p>
+                </div>
+                <div class="card-close"  onclick='close_overview("${solder_info[i].id}")'>Close</div>
+
+            </div>
+        `;
+        container.appendChild(troop);
+      }
+
+      function close_overview(close_overview_id) {
+        let overview_card = document.getElementById(
+          `card-close${close_overview_id}`
+        );
+        overview_card.style.display = "none";
+      }
+
+      function show_card(show_card_id) {
+        let overview_card = document.getElementById(
+          `card-close${show_card_id}`
+        );
+        overview_card.style.display = "block";
+      }
+
+      let search_solder = document.getElementById("search-solder");
+      search_solder.addEventListener("input", (e) => {
+        e.preventDefault();
+        for (i = 0; i < solder_info.length; i++) {
+          if (solder_info[i].id.includes(search_solder.value.toUpperCase())) {
+            container.children[i].style.display = "flex";
+          } else {
+            container.children[i].style.display = "none";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

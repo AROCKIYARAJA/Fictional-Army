@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./military_tech_FILL0_wght400_GRAD0_opsz24.svg" type="image/x-icon">
+    <title>Syndicate Updation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to top right, #040424, #0b0b5b);
+      }
+      nav {
+        background: #000;
+        color: white;
+        padding: 13px 0px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+      .container {
+        width: 1300px;
+        padding: 20px;
+        margin: 120px auto;
+        display: flex;
+        align-items: first baseline;
+        justify-content: space-around;
+      }
+      .container form:nth-child(1) {
+        width: 450px;
+        padding: 20px 30px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.234);
+        transition: 0.5s;
+        color: white;
+        position: relative;
+      }
+      .container form:nth-child(1):hover {
+        box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.126);
+        transition: 0.3s;
+        background: #efefef;
+        color: black;
+        scale: 1.05;
+      }
+      .container form:nth-child(2) {
+        width: 650px;
+        border: 1px solid rgba(255, 255, 255, 0.234);
+        border-radius: 10px;
+        align-items: first baseline;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+        visibility: hidden;
+        background: #00000000;
+        backdrop-filter: blur(10px);
+      }
+      .container form:nth-child(2) input {
+        padding: 10px 5px;
+        margin: 10px;
+        border-radius: 5px;
+        outline: none;
+        letter-spacing: 1px;
+      }
+      .container form:nth-child(1) input {
+        width: 100%;
+        padding: 8px 5px 8px 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.353);
+        outline: none;
+        letter-spacing: 2px;
+      }
+      .title-bar {
+        width: fit-content;
+        margin: 0px auto 10px auto;
+        background: #000;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      textarea {
+        padding: 20px;
+        border-radius: 5px;
+        transform: translateX(12px) translateY(-10px);
+        letter-spacing: 1px;
+        outline: none;
+      }
+      .div_one {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .upload_btn {
+        width: 160px;
+        background: green;
+        color: white;
+        border: none;
+        outline: none;
+        transition: 0.2s;
+      }
+      .upload_btn:hover {
+        transition: 0.2s;
+        text-shadow: 2px 2px 5px black;
+      }
+      *::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        opacity: 0;
+      }
+      @keyframes showon {
+        from {
+          transform: translateX(-200px);
+        }
+        to {
+          transform: translateX(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>Profile updation</nav>
+    <div class="container">
+      <form action="">
+        <div style="line-height: 25px">
+          <p class="title-bar">Updation Procedure</p>
+          Enter the Syndicate ID to update the Syndicate Personal Information,
+          Once You
+          <span style="font-weight: 600"
+            >Fill the ID and Click submit Button the next Updation form will
+            Display on your Display</span
+          >
+        </div>
+        <br />
+        <br />
+
+        <input
+          type="text"
+          placeholder="Enter ID to Update "
+          id="id"
+          autocomplete="off"
+          required
+        />
+        <br />
+        <input
+          type="submit"
+          id="Find"
+          style="
+            margin-top: 10px;
+            background: #7e7e7e;
+            color: white;
+            border: 1px solid #00000000;
+          "
+        />
+        <br />
+      </form>
+
+      <form action="" id="update-form">
+        <div class="div_one">
+          <input
+            type="text"
+            placeholder="Profile Picture URL "
+            id="img_src"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            placeholder="Name "
+            id="troop_name"
+            autocomplete="off"
+          />
+          <input
+            type="number"
+            placeholder="Age "
+            id="troop_age"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            placeholder="Grade "
+            id="troop_grade"
+            autocomplete="off"
+          />
+          <input
+            type="number"
+            placeholder="Salary"
+            id="salary"
+            autocomplete="off"
+          />
+          <input type="text" placeholder="City" id="city" autocomplete="off" />
+          <input
+            type="text"
+            placeholder="State"
+            id="state"
+            autocomplete="off"
+          />
+        </div>
+        <br />
+        <textarea
+          name="last-mission"
+          id="last-mission"
+          cols="40"
+          rows="5"
+          placeholder="About"
+        ></textarea>
+        <br />
+        <input
+          type="submit"
+          value="Profile Update"
+          id="submit-btn"
+          class="upload_btn"
+        />
+        <input
+          type="reset"
+          value="Feild Reset"
+          id="submit-btn"
+          class="upload_btn"
+          style="background: red"
+        />
+      </form>
+    </div>
+    <audio src="./typing sound.mp3" id="typing-audio"></audio>
+
+    <script>
+      document.addEventListener("keydown", (event) => {
+    typing_audio.play();
+});
+      let update_btn = document.getElementById("submit-btn");
+      let troops_info = JSON.parse(localStorage.getItem("Troop_information"))
+        ? JSON.parse(localStorage.getItem("Troop_information"))
+        : [];
+
+      let image_src = document.getElementById("img_src");
+      let troop_name = document.getElementById("troop_name");
+      let troop_age = document.getElementById("troop_age");
+      let troop_grade = document.getElementById("troop_grade");
+      let salary = document.getElementById("salary");
+      let last_mission = document.getElementById("last-mission");
+      let city = document.getElementById("city");
+      let state = document.getElementById("state");
+
+      let id = document.getElementById("id");
+      let find_profile_btn = document.getElementById("Find");
+
+      let update_form = document.getElementById("update-form");
+      find_profile_btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (troops_info.some((target) => target.id == id.value)) {
+          let get_profile = troops_info.find((target) => target.id == id.value);
+          console.log(get_profile);
+          image_src.value = get_profile.img_src;
+          troop_name.value = get_profile.Syndicate_Name;
+          troop_age.value = get_profile.Syndicate_Age;
+          troop_grade.value = get_profile.Syndicate_Grade;
+          salary.value = get_profile.salary;
+          last_mission.value = get_profile.last_mission;
+          city.value = get_profile.city;
+          state.value = get_profile.state;
+
+          update_form.style.visibility = "visible";
+          update_form.style.animation = "showon 0.3s ease-in-out";
+        }else{alert("Entered ID is wrong")}
+      }
+      );
+      update_btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let get_profile = troops_info.find((target) => target.id == id.value);
+        let get_profile_index = troops_info.findIndex(
+          (target) => target.id == id.value
+        );
+
+        troops_info[get_profile_index].Syndicate_Name = troop_name.value;
+        troops_info[get_profile_index].Syndicate_Grade = troop_grade.value;
+        troops_info[get_profile_index].Syndicate_Age = troop_age.value;
+        troops_info[get_profile_index].city = city.value;
+        troops_info[get_profile_index].img_src = image_src.value;
+        troops_info[get_profile_index].last_mission = last_mission.value;
+        troops_info[get_profile_index].salary = salary.value;
+        troops_info[get_profile_index].state = state.value;
+
+        localStorage.setItem("Troop_information", JSON.stringify(troops_info));
+
+        image_src.value = "";
+        troop_name.value = "";
+        troop_age.value = "";
+        troop_grade.value = "";
+        salary.value = "";
+        last_mission.value = "";
+        city.value = "";
+        state.value = "";
+        update_form.style.visibility = "hidden";
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./military_tech_FILL0_wght400_GRAD0_opsz24.svg"
+      type="image/x-icon"
+    />
+    <title>Fictional Army - Profile File</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Courier New", Courier, monospace;
+        box-sizing: border-box;
+        outline: none;
+      }
+      body {
+        background: #071133;
+      }
+      nav {
+        background: grey;
+        color: white;
+        padding: 15px 0px;
+        font-weight: 600;
+        text-align: center;
+      }
+      .comman-input {
+        padding: 5px 10px;
+      }
+      form {
+        width: 850px;
+        max-width: 95%;
+        margin: 60px auto 30px auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px;
+        box-shadow: 0px 0px 10px 5px rgba(135, 135, 135, 0.1);
+        border-radius: 10px;
+        color: white;
+      }
+      .left {
+        width: 45%;
+      }
+      .right {
+        width: 45%;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        opacity: 0;
+      }
+      .input-box-div {
+        width: 100%;
+        margin: 10px auto;
+        font-weight: 600;
+      }
+      .input-box-div p {
+        margin: 5px 0px;
+        padding: 2px;
+      }
+      .input-box-div input {
+        padding: 10px;
+        width: 100%;
+      }
+      #submit-btn {
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background: rgb(77, 131, 241);
+        color: white;
+        font-weight: 600;
+        box-shadow: 0px 0px 10px 5px rgb(0, 0, 0, 0.1);
+      }
+      #submit-btn:hover {
+        text-shadow: 2px 2px 4px black;
+      }
+      .active-border {
+        border: 3px solid rgb(77, 131, 241);
+      }
+      .pop {
+        width: fit-content;
+        padding: 20px;
+        background: rgb(199, 199, 199);
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0px 10px 10px black;
+        animation: show_on 0.2s ease-in-out;
+      }
+      @keyframes show_on {
+        from {
+          transform-style: preserve-3d;
+          transform: translateX(-50%) rotateX(40deg) perspective(50px);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .pop p {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .pop button {
+        padding: 8px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>Profile Create</nav>
+
+    <div class="container" id="container">
+      <form action="">
+        <div class="left">
+          <div class="input-box-div">
+            Default Profile Picture :
+            <p>
+              <input
+                class="comman-input"
+                type="text"
+                placeholder="image URL"
+                id="image"
+                value="https://jefferieslaw.co.uk/wp-content/uploads/2022/04/team-placeholder.svg"
+                onclick=""
+              />
+            </p>
+          </div>
+          <div class="input-box-div">
+            Syndicate Name :
+            <p>
+              <input
+                class="comman-input"
+                type="text"
+                placeholder="Troop Name"
+                id="Name"
+              />
+            </p>
+          </div>
+          <div class="input-box-div">
+            Syndicate Age :
+            <p>
+              <input
+                class="comman-input"
+                type="number"
+                placeholder="Troop Age"
+                id="Age"
+              />
+            </p>
+          </div>
+          <div class="input-box-div">
+            Syndicate Grade :
+            <p>
+              <input
+                class="comman-input"
+                type="text"
+                placeholder="Troop Grade"
+                id="Grade"
+              />
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="input-box-div">
+            Syndicate Salary :
+            <p>
+              <input
+                class="comman-input"
+                type="number"
+                placeholder="Salary"
+                id="salary"
+              />
+            </p>
+          </div>
+          <div class="input-box-div">
+            Syndicate About :
+            <p>
+              <input
+                class="comman-input"
+                type="text"
+                placeholder="About"
+                id="last-mission"
+              />
+            </p>
+          </div>
+          <div class="input-box-div">
+            Syndicate City :
+            <p>
+              <input
+                class="comman-input"
+                type="text"
+                placeholder="City"
+                id="city"
+              />
+            </p>
+          </div>
+          <div class="input-box-div">
+            Syndicate State :
+            <p>
+              <input
+                class="comman-input"
+                type="text"
+                placeholder="State"
+                id="state"
+              />
+            </p>
+          </div>
+        </div>
+      </form>
+      <p style="text-align: center">
+        <input type="submit" id="submit-btn" value="profile Upload" />
+      </p>
+    </div>
+    <div class="pop" style="display: none;">
+      <p>Profile Created Successfully</p>
+      <button id="continuee">Create Another Profile</button>
+      <button id="btn-nav">Veiw Profiles</button>
+    </div>
+    <audio src="./typing sound.mp3" id="typing-audio"></audio>
+
+    <script>
+      let typing_audio = document.getElementById("typing-audio");
+      document.addEventListener("keydown", (event) => {
+        typing_audio.play();
+      });
+      let troop_image = document.getElementById("image");
+      let troop_name = document.getElementById("Name");
+      let troop_age = document.getElementById("Age");
+      let troop_grade = document.getElementById("Grade");
+      let salary = document.getElementById("salary");
+      let last_mission = document.getElementById("last-mission");
+      let city = document.getElementById("city");
+      let state = document.getElementById("state");
+
+      let submit_btn = document.getElementById("submit-btn");
+      let solder_info =
+        JSON.parse(localStorage.getItem("Troop_information")) || [];
+
+      submit_btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (
+          troop_image.value == "" ||
+          troop_name.value == "" ||
+          troop_age.value == "" ||
+          troop_grade.value == "" ||
+          salary.value == "" ||
+          city.value == "" ||
+          state.value == ""
+        ) {
+          alert("All Feilds are necessary to fill");
+          
+         
+        } else {
+          function random_id_gen() {
+            let date_func = new Date();
+            let current_year = date_func.getFullYear();
+            let current_year_sec = date_func.getMilliseconds();
+            return (
+              "IND" +
+              current_year +
+              current_year_sec +
+              Math.floor(Math.random() * 10)
+            );
+          }
+          let single_one = {
+            id: random_id_gen(),
+            Syndicate_Name: troop_name.value,
+            Syndicate_Age: troop_age.value,
+            Syndicate_Grade: troop_grade.value,
+            img_src: troop_image.value,
+            salary: salary.value,
+            last_mission: last_mission.value,
+            city: city.value,
+            state: state.value,
+          };
+
+          solder_info.unshift(single_one);
+          localStorage.setItem(
+            "Troop_information",
+            JSON.stringify(solder_info)
+          );
+          let container_blur = document.getElementById("container");
+          let pop = document.querySelector(".pop");
+          container_blur.style.filter="blur(3px) brightness(50%)";
+          pop.style.display = "block";
+          let continuee = document.getElementById("continuee");
+          continuee.addEventListener("click", function(e) {
+            pop.style.display="none";
+          container_blur.style.filter= " none";
+
+          });
+        }
+      });
+
+      const elements = [
+        troop_name,
+        troop_grade,
+        troop_age,
+        troop_image,
+        salary,
+        last_mission,
+        city,
+        state,
+      ];
+
+      function handleClick(element) {
+        elements.forEach((el) =>
+          el.parentElement.classList.remove("active-border")
+        );
+        element.parentElement.classList.add("active-border");
+      }
+
+      elements.forEach((element) => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault();
+          handleClick(element);
+        });
+      });
+
+      let btn_nav = document.getElementById("btn-nav");
+      btn_nav.addEventListener("click", function (e) {
+        window.open("./Syndicate list.html", "_blank");
+      });
+    </script>
+  </body>
+</html>

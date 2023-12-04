@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="shortcut icon" href="./military_tech_FILL0_wght400_GRAD0_opsz24.svg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        outline: none;
+        font-family: "Courier New", Courier, monospace;
+        transition: 0.9s;
+        
+      }
+      form {
+        padding: 20px;
+        border-radius: 10px;
+      }
+      input {
+        width: 100%;
+        margin: 15px 0px;
+        padding: 13px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.334);
+        border-radius: 5px;
+        background: transparent;
+        color: white;
+        letter-spacing: 1.5px;
+      }
+      body {
+        background: #03031b;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        margin: 180px;
+        padding: 20px 30px;
+        border-radius: 15px;
+        position: relative;
+      }
+      .left {
+        width: 200px;
+        height: 247px;
+        background: url(https://assets.materialup.com/uploads/b11539ed-076b-4d2a-9d42-c5c4c8c6e4fb/preview.gif);
+        background-position: center;
+        background-size: 130%;
+      }
+      .right {
+        width: 400px;
+        background: #03031b;
+        border-radius: 10px;
+        translate: -200px;
+      }
+      #login-btn {
+        background: #070739;
+        font-weight: 600;
+
+      }
+      #login-btn:hover {
+        background: #d6d6d6;
+        color: #03031b;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #login-btn:active {
+        transition: 0s;
+        box-shadow: inset 3px 3px 20px #000000dd;
+        font-weight: 600;
+      }
+      .login-title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .login-title p i{
+        position: relative;
+        transform: translateY(5px);
+        font-size: 2.2rem;
+        color: rgb(255, 217, 0);
+      }
+      #suggestion{
+        position: relative;
+        background: red;
+        color: white;
+        padding: 5px 7px;
+        border-radius: 50%;
+        font-size: 0.8rem;
+        left: -10px;
+        top: -20px;
+      }
+      .key{
+        padding: 5px;
+        cursor: pointer;
+      }
+      .mail-pwd{
+        width: fit-content;
+        padding: 5px;
+        border-radius: 5px;
+        background: #dcdcdc;
+        color: black;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <nav></nav>
+    <div class="container">
+      <div class="left" id="left"></div>
+      <div class="right" id="right">
+        <form action="">
+          <h1 class="login-title" style="color: whitesmoke">Login <p class="key" title="click" onclick="alert('Email : arockiya \npassword : 17082002')"><i class='bx bxs-envelope'></i><span id="suggestion">1</span> </p></h1>
+          <input
+            type="email"
+            placeholder="Email"
+            id="email"
+            autocomplete="off"
+            autofocus
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            autocomplete="off"
+          />
+          <input type="button" value="Login" id="login-btn" />
+        </form>
+      </div>
+    </div>
+   
+    <audio src="./typing sound.mp3" id="typing-audio"></audio>
+    <script src="./index brain.js"></script>
+  </body>
+</html>
+
